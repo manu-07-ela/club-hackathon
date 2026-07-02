@@ -1,0 +1,101 @@
+name: Load test
+
+# Brings up the full stack with docker compose and runs the Locust load test
+# against GET /vehicle-summary, publishing the results as a job summary and
+# uploading the HTML + CSV reports as build artifacts.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      users:
+        description: Concurrent simulated users
+        default: "1"
+        required: false
+      target_requests:
+        description: Requests spread across the measured window
+        default: "100"
+        required: false
+      run_seconds:
+        description: Measured window (seconds)
+        default: "10"
+        required: false
+
+jobs:
+  load-test:
+    runs-on: ubuntu-latest
+    env:
+      HOST: http://localhost:8000
+      USERS: ${{ github.event.inputs.users || '1' }}
+      TARGET_REQUESTS: ${{ github.event.inputs.target_requests || '100' }}
+      RUN_SECONDS: ${{ github.event.inputs.run_seconds || '10' }}
+      AWS_ENDPOINT_URL: http://localhost:4566
+      AWS_REGION: us-east-1
+      AWS_ACCESS_KEY_ID: test
+      AWS_SECRET_ACCESS_KEY: test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Start stack (docker compose)
+        working-directory: infra
+        run: docker compose up -d --build
+
+      - name: Wait for API to be ready
+        run: |
+          echo "Waiting for API at ${HOST}/health ..."
+          for i in $(seq 1 60); do
+            code="$(curl -s -o /dev/null -w '%{http_code}' "${HOST}/health" || true)"
+            if [ "$code" = "200" ]; then
+              echo "API is up (HTTP 200)."
+              exit 0
+            fi
+            echo "  attempt $i: HTTP ${code:-none}, retrying in 5s..."
+            sleep 5
+          done
+          echo "API did not become ready in time." >&2
+          docker compose -f infra/docker-compose.yml logs api || true
+          exit 1
+
+      - name: Run load test
+        working-directory: tests/performance
+        run: ./run.sh
+
+      - name: Publish results to job summary
+        if: always()
+        run: |
+          stats="$(ls -t tests/performance/reports/stats_*_stats.csv 2>/dev/null | head -n1 || true)"
+          {
+            echo "## Load test results"
+            echo ""
+            if [ -z "$stats" ]; then
+              echo "No stats CSV was produced — the load test did not complete."
+            else
+              echo "Source: \`$stats\`"
+              echo ""
+              echo "| Endpoint | Requests | Failures | Avg (ms) | Min (ms) | Max (ms) | p50 (ms) | p95 (ms) | p99 (ms) | Req/s |"
+              echo "|----------|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|------:|"
+              # Columns: Type,Name,ReqCount,FailCount,Median,Avg,Min,Max,ContentSize,Req/s,Fail/s,50%,66%,75%,80%,90%,95%,98%,99%,...
+              awk -F',' 'NR>1 {
+                name=$2; reqs=$3; fails=$4; avg=$6; min=$7; max=$8; rps=$10; p50=$12; p95=$16; p99=$18;
+                printf "| %s | %s | %s | %.1f | %.1f | %.1f | %s | %s | %s | %.2f |\n", name, reqs, fails, avg, min, max, p50, p95, p99, rps;
+              }' "$stats"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: load-test-reports
+          path: tests/performance/reports/
+          if-no-files-found: warn
+
+      - name: Tear down stack
+        if: always()
+        working-directory: infra
+        run: docker compose down -v

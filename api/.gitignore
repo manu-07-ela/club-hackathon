@@ -1,0 +1,8 @@
+# Python / uv artifacts local to the api project
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.env

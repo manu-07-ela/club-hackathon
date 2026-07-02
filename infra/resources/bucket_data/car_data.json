@@ -1,0 +1,1222 @@
+{
+  "manufacturers": [
+    {
+      "manufacturer_id": 1,
+      "name": "BMW",
+      "country": "Germany",
+      "founded_year": 1916
+    },
+    {
+      "manufacturer_id": 2,
+      "name": "Maker_2",
+      "country": "UK",
+      "founded_year": 1953
+    },
+    {
+      "manufacturer_id": 3,
+      "name": "Maker_3",
+      "country": "Canada",
+      "founded_year": 2012
+    },
+    {
+      "manufacturer_id": 4,
+      "name": "Maker_4",
+      "country": "India",
+      "founded_year": 1959
+    },
+    {
+      "manufacturer_id": 5,
+      "name": "Maker_5",
+      "country": "USA",
+      "founded_year": 1982
+    },
+    {
+      "manufacturer_id": 6,
+      "name": "Maker_6",
+      "country": "China",
+      "founded_year": 1963
+    },
+    {
+      "manufacturer_id": 7,
+      "name": "Maker_7",
+      "country": "Canada",
+      "founded_year": 2016
+    },
+    {
+      "manufacturer_id": 8,
+      "name": "Maker_8",
+      "country": "Japan",
+      "founded_year": 1954
+    },
+    {
+      "manufacturer_id": 9,
+      "name": "Maker_9",
+      "country": "USA",
+      "founded_year": 1935
+    },
+    {
+      "manufacturer_id": 10,
+      "name": "Maker_10",
+      "country": "France",
+      "founded_year": 1956
+    },
+    {
+      "manufacturer_id": 11,
+      "name": "Maker_11",
+      "country": "Italy",
+      "founded_year": 1931
+    },
+    {
+      "manufacturer_id": 12,
+      "name": "Maker_12",
+      "country": "Spain",
+      "founded_year": 1943
+    },
+    {
+      "manufacturer_id": 13,
+      "name": "Maker_13",
+      "country": "Italy",
+      "founded_year": 1904
+    },
+    {
+      "manufacturer_id": 14,
+      "name": "Maker_14",
+      "country": "Spain",
+      "founded_year": 1999
+    },
+    {
+      "manufacturer_id": 15,
+      "name": "Maker_15",
+      "country": "China",
+      "founded_year": 1903
+    },
+    {
+      "manufacturer_id": 16,
+      "name": "Maker_16",
+      "country": "UK",
+      "founded_year": 1910
+    },
+    {
+      "manufacturer_id": 17,
+      "name": "Maker_17",
+      "country": "France",
+      "founded_year": 1932
+    },
+    {
+      "manufacturer_id": 18,
+      "name": "Maker_18",
+      "country": "Spain",
+      "founded_year": 1913
+    },
+    {
+      "manufacturer_id": 19,
+      "name": "Maker_19",
+      "country": "Spain",
+      "founded_year": 1996
+    },
+    {
+      "manufacturer_id": 20,
+      "name": "Maker_20",
+      "country": "Germany",
+      "founded_year": 1914
+    }
+  ],
+  "models": [
+    {
+      "model_id": 1,
+      "manufacturer_id": 1,
+      "name": "X1",
+      "segment": "SUV"
+    },
+    {
+      "model_id": 2,
+      "manufacturer_id": 18812,
+      "name": "Model_2",
+      "segment": "SUV"
+    },
+    {
+      "model_id": 3,
+      "manufacturer_id": 3077,
+      "name": "Model_3",
+      "segment": "SUV"
+    },
+    {
+      "model_id": 4,
+      "manufacturer_id": 9260,
+      "name": "Model_4",
+      "segment": "Coupe"
+    },
+    {
+      "model_id": 5,
+      "manufacturer_id": 287,
+      "name": "Model_5",
+      "segment": "Van"
+    },
+    {
+      "model_id": 6,
+      "manufacturer_id": 5366,
+      "name": "Model_6",
+      "segment": "Truck"
+    },
+    {
+      "model_id": 7,
+      "manufacturer_id": 2617,
+      "name": "Model_7",
+      "segment": "Sedan"
+    },
+    {
+      "model_id": 8,
+      "manufacturer_id": 5226,
+      "name": "Model_8",
+      "segment": "Convertible"
+    },
+    {
+      "model_id": 9,
+      "manufacturer_id": 17638,
+      "name": "Model_9",
+      "segment": "Hatchback"
+    },
+    {
+      "model_id": 10,
+      "manufacturer_id": 2212,
+      "name": "Model_10",
+      "segment": "Sedan"
+    },
+    {
+      "model_id": 11,
+      "manufacturer_id": 19195,
+      "name": "Model_11",
+      "segment": "SUV"
+    },
+    {
+      "model_id": 12,
+      "manufacturer_id": 4460,
+      "name": "Model_12",
+      "segment": "Van"
+    },
+    {
+      "model_id": 13,
+      "manufacturer_id": 17956,
+      "name": "Model_13",
+      "segment": "Sedan"
+    },
+    {
+      "model_id": 14,
+      "manufacturer_id": 11952,
+      "name": "Model_14",
+      "segment": "Convertible"
+    },
+    {
+      "model_id": 15,
+      "manufacturer_id": 9676,
+      "name": "Model_15",
+      "segment": "Van"
+    },
+    {
+      "model_id": 16,
+      "manufacturer_id": 15793,
+      "name": "Model_16",
+      "segment": "Sedan"
+    },
+    {
+      "model_id": 17,
+      "manufacturer_id": 10830,
+      "name": "Model_17",
+      "segment": "Coupe"
+    },
+    {
+      "model_id": 18,
+      "manufacturer_id": 18687,
+      "name": "Model_18",
+      "segment": "Van"
+    },
+    {
+      "model_id": 19,
+      "manufacturer_id": 13581,
+      "name": "Model_19",
+      "segment": "Sedan"
+    },
+    {
+      "model_id": 20,
+      "manufacturer_id": 13323,
+      "name": "Model_20",
+      "segment": "Hatchback"
+    }
+  ],
+  "model_years": [
+    {
+      "model_year_id": 1,
+      "model_id": 1,
+      "year": 1999,
+      "msrp_usd": 38000
+    },
+    {
+      "model_year_id": 2,
+      "model_id": 66641,
+      "year": 2010,
+      "msrp_usd": 25012
+    },
+    {
+      "model_year_id": 3,
+      "model_id": 51585,
+      "year": 2008,
+      "msrp_usd": 36017
+    },
+    {
+      "model_year_id": 4,
+      "model_id": 53073,
+      "year": 1999,
+      "msrp_usd": 20780
+    },
+    {
+      "model_year_id": 5,
+      "model_id": 12961,
+      "year": 1998,
+      "msrp_usd": 64674
+    },
+    {
+      "model_year_id": 6,
+      "model_id": 68539,
+      "year": 2002,
+      "msrp_usd": 51763
+    },
+    {
+      "model_year_id": 7,
+      "model_id": 92333,
+      "year": 2006,
+      "msrp_usd": 45024
+    },
+    {
+      "model_year_id": 8,
+      "model_id": 89061,
+      "year": 1991,
+      "msrp_usd": 58680
+    },
+    {
+      "model_year_id": 9,
+      "model_id": 22544,
+      "year": 2024,
+      "msrp_usd": 60498
+    },
+    {
+      "model_year_id": 10,
+      "model_id": 21456,
+      "year": 1998,
+      "msrp_usd": 82845
+    },
+    {
+      "model_year_id": 11,
+      "model_id": 40984,
+      "year": 1991,
+      "msrp_usd": 86689
+    },
+    {
+      "model_year_id": 12,
+      "model_id": 89551,
+      "year": 2017,
+      "msrp_usd": 39780
+    },
+    {
+      "model_year_id": 13,
+      "model_id": 62473,
+      "year": 2019,
+      "msrp_usd": 30344
+    },
+    {
+      "model_year_id": 14,
+      "model_id": 36819,
+      "year": 2016,
+      "msrp_usd": 22005
+    },
+    {
+      "model_year_id": 15,
+      "model_id": 44855,
+      "year": 1990,
+      "msrp_usd": 39813
+    },
+    {
+      "model_year_id": 16,
+      "model_id": 3464,
+      "year": 1993,
+      "msrp_usd": 22153
+    },
+    {
+      "model_year_id": 17,
+      "model_id": 63946,
+      "year": 2016,
+      "msrp_usd": 65524
+    },
+    {
+      "model_year_id": 18,
+      "model_id": 72610,
+      "year": 2000,
+      "msrp_usd": 19345
+    },
+    {
+      "model_year_id": 19,
+      "model_id": 39069,
+      "year": 2002,
+      "msrp_usd": 30914
+    },
+    {
+      "model_year_id": 20,
+      "model_id": 44248,
+      "year": 2003,
+      "msrp_usd": 28084
+    }
+  ],
+  "generations": [
+    {
+      "generation_id": 1,
+      "model_id": 1,
+      "generation_name": "F48",
+      "start_year": 1995,
+      "end_year": 2010
+    },
+    {
+      "generation_id": 2,
+      "model_id": 4239,
+      "generation_name": "Gen_2",
+      "start_year": 2003,
+      "end_year": 2006
+    },
+    {
+      "generation_id": 3,
+      "model_id": 48498,
+      "generation_name": "Gen_3",
+      "start_year": 2010,
+      "end_year": 2015
+    },
+    {
+      "generation_id": 4,
+      "model_id": 8980,
+      "generation_name": "Gen_4",
+      "start_year": 1995,
+      "end_year": 1998
+    },
+    {
+      "generation_id": 5,
+      "model_id": 47685,
+      "generation_name": "Gen_5",
+      "start_year": 2011,
+      "end_year": 2014
+    },
+    {
+      "generation_id": 6,
+      "model_id": 69403,
+      "generation_name": "Gen_6",
+      "start_year": 1993,
+      "end_year": 1999
+    },
+    {
+      "generation_id": 7,
+      "model_id": 61436,
+      "generation_name": "Gen_7",
+      "start_year": 1995,
+      "end_year": 1998
+    },
+    {
+      "generation_id": 8,
+      "model_id": 38620,
+      "generation_name": "Gen_8",
+      "start_year": 2009,
+      "end_year": 2014
+    },
+    {
+      "generation_id": 9,
+      "model_id": 52078,
+      "generation_name": "Gen_9",
+      "start_year": 2002,
+      "end_year": 2008
+    },
+    {
+      "generation_id": 10,
+      "model_id": 94888,
+      "generation_name": "Gen_10",
+      "start_year": 1997,
+      "end_year": 2002
+    },
+    {
+      "generation_id": 11,
+      "model_id": 7493,
+      "generation_name": "Gen_11",
+      "start_year": 2011,
+      "end_year": 2017
+    },
+    {
+      "generation_id": 12,
+      "model_id": 71059,
+      "generation_name": "Gen_12",
+      "start_year": 2002,
+      "end_year": 2006
+    },
+    {
+      "generation_id": 13,
+      "model_id": 43129,
+      "generation_name": "Gen_13",
+      "start_year": 1999,
+      "end_year": 2000
+    },
+    {
+      "generation_id": 14,
+      "model_id": 18452,
+      "generation_name": "Gen_14",
+      "start_year": 1990,
+      "end_year": 1999
+    },
+    {
+      "generation_id": 15,
+      "model_id": 32707,
+      "generation_name": "Gen_15",
+      "start_year": 1996,
+      "end_year": 1997
+    },
+    {
+      "generation_id": 16,
+      "model_id": 84279,
+      "generation_name": "Gen_16",
+      "start_year": 1991,
+      "end_year": 1996
+    },
+    {
+      "generation_id": 17,
+      "model_id": 8566,
+      "generation_name": "Gen_17",
+      "start_year": 1991,
+      "end_year": 1996
+    },
+    {
+      "generation_id": 18,
+      "model_id": 53664,
+      "generation_name": "Gen_18",
+      "start_year": 1990,
+      "end_year": 1991
+    },
+    {
+      "generation_id": 19,
+      "model_id": 39625,
+      "generation_name": "Gen_19",
+      "start_year": 2004,
+      "end_year": 2010
+    },
+    {
+      "generation_id": 20,
+      "model_id": 1558,
+      "generation_name": "Gen_20",
+      "start_year": 2002,
+      "end_year": 2010
+    }
+  ],
+  "recalls": [
+    {
+      "recall_id": 1,
+      "model_year_id": 1,
+      "recall_date": "1999-06-15",
+      "description": "Anchor recall: ABS module inspection",
+      "resolved": true
+    },
+    {
+      "recall_id": 2,
+      "model_year_id": 1,
+      "recall_date": "2001-03-22",
+      "description": "Anchor recall: turbocharger oil line",
+      "resolved": false
+    },
+    {
+      "recall_id": 3,
+      "model_year_id": 182094,
+      "recall_date": "2005-10-30",
+      "description": "Safety recall on fuel system ref#3",
+      "resolved": true
+    },
+    {
+      "recall_id": 4,
+      "model_year_id": 404809,
+      "recall_date": "2014-11-09",
+      "description": "Safety recall on transmission system ref#4",
+      "resolved": false
+    },
+    {
+      "recall_id": 5,
+      "model_year_id": 101265,
+      "recall_date": "2025-02-14",
+      "description": "Safety recall on sensor system ref#5",
+      "resolved": true
+    },
+    {
+      "recall_id": 6,
+      "model_year_id": 328872,
+      "recall_date": "2002-09-16",
+      "description": "Safety recall on transmission system ref#6",
+      "resolved": true
+    },
+    {
+      "recall_id": 7,
+      "model_year_id": 121140,
+      "recall_date": "1998-06-26",
+      "description": "Safety recall on coolant system ref#7",
+      "resolved": false
+    },
+    {
+      "recall_id": 8,
+      "model_year_id": 71270,
+      "recall_date": "2001-11-24",
+      "description": "Safety recall on wiring system ref#8",
+      "resolved": true
+    },
+    {
+      "recall_id": 9,
+      "model_year_id": 419618,
+      "recall_date": "2021-07-07",
+      "description": "Safety recall on airbag system ref#9",
+      "resolved": true
+    },
+    {
+      "recall_id": 10,
+      "model_year_id": 183297,
+      "recall_date": "2002-10-30",
+      "description": "Safety recall on engine system ref#10",
+      "resolved": false
+    },
+    {
+      "recall_id": 11,
+      "model_year_id": 246354,
+      "recall_date": "2011-05-06",
+      "description": "Safety recall on coolant system ref#11",
+      "resolved": false
+    },
+    {
+      "recall_id": 12,
+      "model_year_id": 482035,
+      "recall_date": "2025-02-25",
+      "description": "Safety recall on airbag system ref#12",
+      "resolved": true
+    },
+    {
+      "recall_id": 13,
+      "model_year_id": 425106,
+      "recall_date": "1998-08-09",
+      "description": "Safety recall on ignition system ref#13",
+      "resolved": false
+    },
+    {
+      "recall_id": 14,
+      "model_year_id": 238345,
+      "recall_date": "2010-11-29",
+      "description": "Safety recall on coolant system ref#14",
+      "resolved": false
+    },
+    {
+      "recall_id": 15,
+      "model_year_id": 155859,
+      "recall_date": "1994-06-22",
+      "description": "Safety recall on wiring system ref#15",
+      "resolved": true
+    },
+    {
+      "recall_id": 16,
+      "model_year_id": 136601,
+      "recall_date": "2020-01-21",
+      "description": "Safety recall on brake system ref#16",
+      "resolved": false
+    },
+    {
+      "recall_id": 17,
+      "model_year_id": 360608,
+      "recall_date": "2023-06-03",
+      "description": "Safety recall on fuel system ref#17",
+      "resolved": true
+    },
+    {
+      "recall_id": 18,
+      "model_year_id": 276272,
+      "recall_date": "2001-08-16",
+      "description": "Safety recall on airbag system ref#18",
+      "resolved": true
+    },
+    {
+      "recall_id": 19,
+      "model_year_id": 265946,
+      "recall_date": "2004-04-15",
+      "description": "Safety recall on airbag system ref#19",
+      "resolved": true
+    },
+    {
+      "recall_id": 20,
+      "model_year_id": 83199,
+      "recall_date": "2018-03-01",
+      "description": "Safety recall on transmission system ref#20",
+      "resolved": false
+    }
+  ],
+  "parts": [
+    {
+      "part_id": 1,
+      "part_name": "Engine Block",
+      "part_category": "Engine"
+    },
+    {
+      "part_id": 2,
+      "part_name": "Turbocharger",
+      "part_category": "Engine"
+    },
+    {
+      "part_id": 3,
+      "part_name": "ABS Module",
+      "part_category": "Brakes"
+    },
+    {
+      "part_id": 4,
+      "part_name": "Part_4",
+      "part_category": "Engine"
+    },
+    {
+      "part_id": 5,
+      "part_name": "Part_5",
+      "part_category": "Suspension"
+    },
+    {
+      "part_id": 6,
+      "part_name": "Part_6",
+      "part_category": "Brakes"
+    },
+    {
+      "part_id": 7,
+      "part_name": "Part_7",
+      "part_category": "Suspension"
+    },
+    {
+      "part_id": 8,
+      "part_name": "Part_8",
+      "part_category": "Transmission"
+    },
+    {
+      "part_id": 9,
+      "part_name": "Part_9",
+      "part_category": "Interior"
+    },
+    {
+      "part_id": 10,
+      "part_name": "Part_10",
+      "part_category": "Interior"
+    },
+    {
+      "part_id": 11,
+      "part_name": "Part_11",
+      "part_category": "Engine"
+    },
+    {
+      "part_id": 12,
+      "part_name": "Part_12",
+      "part_category": "Brakes"
+    },
+    {
+      "part_id": 13,
+      "part_name": "Part_13",
+      "part_category": "Electrical"
+    },
+    {
+      "part_id": 14,
+      "part_name": "Part_14",
+      "part_category": "Body"
+    },
+    {
+      "part_id": 15,
+      "part_name": "Part_15",
+      "part_category": "Suspension"
+    },
+    {
+      "part_id": 16,
+      "part_name": "Part_16",
+      "part_category": "Engine"
+    },
+    {
+      "part_id": 17,
+      "part_name": "Part_17",
+      "part_category": "Electrical"
+    },
+    {
+      "part_id": 18,
+      "part_name": "Part_18",
+      "part_category": "Engine"
+    },
+    {
+      "part_id": 19,
+      "part_name": "Part_19",
+      "part_category": "Engine"
+    },
+    {
+      "part_id": 20,
+      "part_name": "Part_20",
+      "part_category": "Brakes"
+    }
+  ],
+  "model_parts": [
+    {
+      "model_year_id": 1,
+      "part_id": 1,
+      "quantity": 1
+    },
+    {
+      "model_year_id": 1,
+      "part_id": 2,
+      "quantity": 1
+    },
+    {
+      "model_year_id": 1,
+      "part_id": 3,
+      "quantity": 1
+    },
+    {
+      "model_year_id": 41730,
+      "part_id": 83119,
+      "quantity": 2
+    },
+    {
+      "model_year_id": 428137,
+      "part_id": 2553,
+      "quantity": 2
+    },
+    {
+      "model_year_id": 130303,
+      "part_id": 88983,
+      "quantity": 4
+    },
+    {
+      "model_year_id": 340775,
+      "part_id": 12265,
+      "quantity": 7
+    },
+    {
+      "model_year_id": 242467,
+      "part_id": 193564,
+      "quantity": 8
+    },
+    {
+      "model_year_id": 413908,
+      "part_id": 38187,
+      "quantity": 8
+    },
+    {
+      "model_year_id": 263660,
+      "part_id": 85184,
+      "quantity": 5
+    },
+    {
+      "model_year_id": 490629,
+      "part_id": 8217,
+      "quantity": 2
+    },
+    {
+      "model_year_id": 29022,
+      "part_id": 136796,
+      "quantity": 3
+    },
+    {
+      "model_year_id": 203240,
+      "part_id": 6040,
+      "quantity": 5
+    },
+    {
+      "model_year_id": 179074,
+      "part_id": 176601,
+      "quantity": 4
+    },
+    {
+      "model_year_id": 428883,
+      "part_id": 92205,
+      "quantity": 4
+    },
+    {
+      "model_year_id": 374211,
+      "part_id": 185792,
+      "quantity": 7
+    },
+    {
+      "model_year_id": 402693,
+      "part_id": 150982,
+      "quantity": 4
+    },
+    {
+      "model_year_id": 243191,
+      "part_id": 70239,
+      "quantity": 8
+    },
+    {
+      "model_year_id": 147576,
+      "part_id": 65824,
+      "quantity": 8
+    },
+    {
+      "model_year_id": 90308,
+      "part_id": 119011,
+      "quantity": 2
+    }
+  ],
+  "consumers": [
+    {
+      "consumer_id": 1,
+      "name": "Anchor Owner 1",
+      "country": "USA",
+      "age_group": "36-50"
+    },
+    {
+      "consumer_id": 2,
+      "name": "Anchor Owner 2",
+      "country": "USA",
+      "age_group": "36-50"
+    },
+    {
+      "consumer_id": 3,
+      "name": "Anchor Owner 3",
+      "country": "USA",
+      "age_group": "36-50"
+    },
+    {
+      "consumer_id": 4,
+      "name": "Anchor Owner 4",
+      "country": "USA",
+      "age_group": "36-50"
+    },
+    {
+      "consumer_id": 5,
+      "name": "Anchor Owner 5",
+      "country": "USA",
+      "age_group": "36-50"
+    },
+    {
+      "consumer_id": 6,
+      "name": "Owner_6_866339",
+      "country": "UK",
+      "age_group": "26-35"
+    },
+    {
+      "consumer_id": 7,
+      "name": "Owner_7_472537",
+      "country": "Spain",
+      "age_group": "51-65"
+    },
+    {
+      "consumer_id": 8,
+      "name": "Owner_8_537715",
+      "country": "Spain",
+      "age_group": "26-35"
+    },
+    {
+      "consumer_id": 9,
+      "name": "Owner_9_146471",
+      "country": "India",
+      "age_group": "18-25"
+    },
+    {
+      "consumer_id": 10,
+      "name": "Owner_10_753557",
+      "country": "Germany",
+      "age_group": "36-50"
+    },
+    {
+      "consumer_id": 11,
+      "name": "Owner_11_778719",
+      "country": "China",
+      "age_group": "18-25"
+    },
+    {
+      "consumer_id": 12,
+      "name": "Owner_12_545924",
+      "country": "USA",
+      "age_group": "36-50"
+    },
+    {
+      "consumer_id": 13,
+      "name": "Owner_13_408275",
+      "country": "France",
+      "age_group": "18-25"
+    },
+    {
+      "consumer_id": 14,
+      "name": "Owner_14_112740",
+      "country": "Germany",
+      "age_group": "65+"
+    },
+    {
+      "consumer_id": 15,
+      "name": "Owner_15_68997",
+      "country": "Germany",
+      "age_group": "65+"
+    },
+    {
+      "consumer_id": 16,
+      "name": "Owner_16_130027",
+      "country": "India",
+      "age_group": "51-65"
+    },
+    {
+      "consumer_id": 17,
+      "name": "Owner_17_429763",
+      "country": "USA",
+      "age_group": "36-50"
+    },
+    {
+      "consumer_id": 18,
+      "name": "Owner_18_486525",
+      "country": "Spain",
+      "age_group": "51-65"
+    },
+    {
+      "consumer_id": 19,
+      "name": "Owner_19_227532",
+      "country": "China",
+      "age_group": "18-25"
+    },
+    {
+      "consumer_id": 20,
+      "name": "Owner_20_199678",
+      "country": "India",
+      "age_group": "65+"
+    }
+  ],
+  "consumer_vehicles": [
+    {
+      "consumer_id": 1,
+      "model_year_id": 1,
+      "purchase_date": "2005-08-01",
+      "mileage_km": 50001
+    },
+    {
+      "consumer_id": 2,
+      "model_year_id": 1,
+      "purchase_date": "2005-08-01",
+      "mileage_km": 50002
+    },
+    {
+      "consumer_id": 3,
+      "model_year_id": 1,
+      "purchase_date": "2005-08-01",
+      "mileage_km": 50003
+    },
+    {
+      "consumer_id": 4,
+      "model_year_id": 1,
+      "purchase_date": "2005-08-01",
+      "mileage_km": 50004
+    },
+    {
+      "consumer_id": 5,
+      "model_year_id": 1,
+      "purchase_date": "2005-08-01",
+      "mileage_km": 50005
+    },
+    {
+      "consumer_id": 879742,
+      "model_year_id": 289547,
+      "purchase_date": "2020-01-22",
+      "mileage_km": 258699
+    },
+    {
+      "consumer_id": 276831,
+      "model_year_id": 240349,
+      "purchase_date": "2014-08-13",
+      "mileage_km": 98187
+    },
+    {
+      "consumer_id": 4950,
+      "model_year_id": 148660,
+      "purchase_date": "1990-04-30",
+      "mileage_km": 208982
+    },
+    {
+      "consumer_id": 425407,
+      "model_year_id": 327476,
+      "purchase_date": "2022-10-01",
+      "mileage_km": 226977
+    },
+    {
+      "consumer_id": 1237700,
+      "model_year_id": 107556,
+      "purchase_date": "1996-12-27",
+      "mileage_km": 286520
+    },
+    {
+      "consumer_id": 1813752,
+      "model_year_id": 72440,
+      "purchase_date": "2001-12-22",
+      "mileage_km": 152016
+    },
+    {
+      "consumer_id": 200986,
+      "model_year_id": 101845,
+      "purchase_date": "1991-08-12",
+      "mileage_km": 255469
+    },
+    {
+      "consumer_id": 2986263,
+      "model_year_id": 7582,
+      "purchase_date": "2024-11-25",
+      "mileage_km": 45944
+    },
+    {
+      "consumer_id": 736190,
+      "model_year_id": 203566,
+      "purchase_date": "1991-02-18",
+      "mileage_km": 223883
+    },
+    {
+      "consumer_id": 1773243,
+      "model_year_id": 22531,
+      "purchase_date": "1993-05-02",
+      "mileage_km": 35702
+    },
+    {
+      "consumer_id": 512662,
+      "model_year_id": 112003,
+      "purchase_date": "2020-10-25",
+      "mileage_km": 111489
+    },
+    {
+      "consumer_id": 2891279,
+      "model_year_id": 126731,
+      "purchase_date": "2017-05-23",
+      "mileage_km": 218250
+    },
+    {
+      "consumer_id": 936556,
+      "model_year_id": 218859,
+      "purchase_date": "1996-11-25",
+      "mileage_km": 155917
+    },
+    {
+      "consumer_id": 2580542,
+      "model_year_id": 141125,
+      "purchase_date": "2013-11-21",
+      "mileage_km": 42885
+    },
+    {
+      "consumer_id": 2118301,
+      "model_year_id": 143798,
+      "purchase_date": "2006-03-13",
+      "mileage_km": 206304
+    }
+  ],
+  "safety_ratings": [
+    {
+      "model_year_id": 1,
+      "rating_agency": "NHTSA",
+      "overall_rating": 4.5,
+      "crash_test_score": 89
+    },
+    {
+      "model_year_id": 321075,
+      "rating_agency": "ANCAP",
+      "overall_rating": 3.4,
+      "crash_test_score": 91
+    },
+    {
+      "model_year_id": 377700,
+      "rating_agency": "EuroNCAP",
+      "overall_rating": 4.3,
+      "crash_test_score": 85
+    },
+    {
+      "model_year_id": 459652,
+      "rating_agency": "ANCAP",
+      "overall_rating": 4.8,
+      "crash_test_score": 88
+    },
+    {
+      "model_year_id": 265407,
+      "rating_agency": "NHTSA",
+      "overall_rating": 2.8,
+      "crash_test_score": 90
+    },
+    {
+      "model_year_id": 305115,
+      "rating_agency": "EuroNCAP",
+      "overall_rating": 3.9,
+      "crash_test_score": 89
+    },
+    {
+      "model_year_id": 6031,
+      "rating_agency": "EuroNCAP",
+      "overall_rating": 1.9,
+      "crash_test_score": 75
+    },
+    {
+      "model_year_id": 70051,
+      "rating_agency": "EuroNCAP",
+      "overall_rating": 1.4,
+      "crash_test_score": 66
+    },
+    {
+      "model_year_id": 158389,
+      "rating_agency": "NHTSA",
+      "overall_rating": 1.3,
+      "crash_test_score": 61
+    },
+    {
+      "model_year_id": 128859,
+      "rating_agency": "EuroNCAP",
+      "overall_rating": 3.0,
+      "crash_test_score": 54
+    },
+    {
+      "model_year_id": 148933,
+      "rating_agency": "EuroNCAP",
+      "overall_rating": 3.1,
+      "crash_test_score": 56
+    },
+    {
+      "model_year_id": 983,
+      "rating_agency": "ANCAP",
+      "overall_rating": 1.9,
+      "crash_test_score": 88
+    },
+    {
+      "model_year_id": 144508,
+      "rating_agency": "NHTSA",
+      "overall_rating": 3.4,
+      "crash_test_score": 98
+    },
+    {
+      "model_year_id": 381134,
+      "rating_agency": "NHTSA",
+      "overall_rating": 3.6,
+      "crash_test_score": 84
+    },
+    {
+      "model_year_id": 42131,
+      "rating_agency": "IIHS",
+      "overall_rating": 1.6,
+      "crash_test_score": 70
+    },
+    {
+      "model_year_id": 491221,
+      "rating_agency": "EuroNCAP",
+      "overall_rating": 2.1,
+      "crash_test_score": 80
+    },
+    {
+      "model_year_id": 221852,
+      "rating_agency": "EuroNCAP",
+      "overall_rating": 1.1,
+      "crash_test_score": 70
+    },
+    {
+      "model_year_id": 448969,
+      "rating_agency": "IIHS",
+      "overall_rating": 1.4,
+      "crash_test_score": 52
+    },
+    {
+      "model_year_id": 105236,
+      "rating_agency": "IIHS",
+      "overall_rating": 3.3,
+      "crash_test_score": 95
+    },
+    {
+      "model_year_id": 420275,
+      "rating_agency": "IIHS",
+      "overall_rating": 4.1,
+      "crash_test_score": 52
+    }
+  ]
+}

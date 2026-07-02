@@ -1,0 +1,6 @@
+AGENTS.MD
+data/filegenerator.py
+.env
+.venv/
+__pycache__/
+*.pyc
