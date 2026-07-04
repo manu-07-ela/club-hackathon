@@ -49,7 +49,7 @@ services:
     ports:
       - "8000:8000"
     # Resource limits — must stay within the challenge constraints.
-    mem_limit: 1024m
+    mem_limit: 128m
     cpus: 0.5
     depends_on:
       ministack:
