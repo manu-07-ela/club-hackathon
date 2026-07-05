@@ -11,7 +11,7 @@ on:
     inputs:
       users:
         description: Concurrent simulated users
-        default: "1"
+        default: "15"
         required: false
       target_requests:
         description: Requests spread across the measured window
@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HOST: http://localhost:8000
-      USERS: ${{ github.event.inputs.users || '1' }}
+      USERS: ${{ github.event.inputs.users || '15' }}
       TARGET_REQUESTS: ${{ github.event.inputs.target_requests || '100' }}
       RUN_SECONDS: ${{ github.event.inputs.run_seconds || '10' }}
       AWS_ENDPOINT_URL: http://localhost:4566
@@ -80,7 +80,9 @@ jobs:
               echo "| Endpoint | Requests | Failures | Avg (ms) | Min (ms) | Max (ms) | p50 (ms) | p95 (ms) | p99 (ms) | Req/s |"
               echo "|----------|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|------:|"
               # Columns: Type,Name,ReqCount,FailCount,Median,Avg,Min,Max,ContentSize,Req/s,Fail/s,50%,66%,75%,80%,90%,95%,98%,99%,...
-              awk -F',' 'NR>1 {
+              # Only the measured /vehicle-summary endpoint is scored; the
+              # /ready warm-up probes and the Aggregated row are excluded.
+              awk -F',' 'NR>1 && $2=="/vehicle-summary" {
                 name=$2; reqs=$3; fails=$4; avg=$6; min=$7; max=$8; rps=$10; p50=$12; p95=$16; p99=$18;
                 printf "| %s | %s | %s | %.1f | %.1f | %.1f | %s | %s | %s | %.2f |\n", name, reqs, fails, avg, min, max, p50, p95, p99, rps;
               }' "$stats"
