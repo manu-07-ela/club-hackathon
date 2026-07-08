@@ -4,9 +4,10 @@ import logging
 import os
 
 from fastapi import FastAPI, HTTPException, Query
+from typing import Annotated
 
 from api.middleware.timing import register_timing_middleware
-from api.queries.vehicle_summary import build_vehicle_summary_sql
+from api.queries.vehicle_summary import build_vehicle_query
 from api.utils.athena import run_athena_query
 from api.utils.converters import to_bool, to_float, to_int
 
@@ -33,14 +34,14 @@ def ready() -> dict[str, str]:
 
 @app.get("/vehicle-summary")
 def vehicle_summary(
-    manufacturer: str = Query(description="Manufacturer name, e.g. BMW.", default="BMW"),
-    model: str = Query(description="Model name, e.g. X1.", default="X1"),
-    year: int = Query(description="Model year, e.g. 1999.", default=1999),
+    manufacturer: Annotated[str, Query(description="Manufacturer name, e.g. BMW.")],
+    model: Annotated[str | None, Query(description="Model name, e.g. X1.")] = None,
+    year: Annotated[int | None, Query(description="Model year, e.g. 1999.")] = None,
 ) -> dict[str, object]:
     bucket = os.getenv("VEHICLE_DATA_BUCKET", "vehicle-data")
     prefix = os.getenv("VEHICLE_DATA_PREFIX", "parquet/")
 
-    sql = build_vehicle_summary_sql(bucket, prefix, manufacturer, model, year)
+    sql = build_vehicle_query(bucket, prefix, manufacturer, model, year)
     rows = run_athena_query(sql)
     if not rows:
         raise HTTPException(

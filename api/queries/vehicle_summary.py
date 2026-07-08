@@ -11,16 +11,81 @@ def _t(bucket: str, prefix: str, table: str) -> str:
     return f"read_parquet('s3://{bucket}/{prefix}{table}.parquet')"
 
 
-def build_vehicle_summary_sql(
-    bucket: str, prefix: str, manufacturer: str, model: str, year: int
-) -> str:
-    """Build a single heavy query that joins all 10 tables into one summary row.
+# ---------------------------------------------------------------------------
+# Manufacturer
+# ---------------------------------------------------------------------------
 
-    The query resolves the target (manufacturer, model, year) tuple, then joins
-    every related table — generations, recalls, parts (via model_parts),
-    consumers (via consumer_vehicles) and safety_ratings — aggregating each
-    branch down to the fields required by the response shape.
-    """
+
+def build_manufacturer_sql(
+    bucket: str,
+    prefix: str,
+    manufacturer: str,
+) -> str:
+    """Return manufacturer information."""
+
+    manufacturers = _t(bucket, prefix, "manufacturers")
+
+    return f"""
+SELECT
+    manufacturer_id,
+    name AS manufacturer_name,
+    country AS manufacturer_country,
+    founded_year
+FROM {manufacturers}
+WHERE name = {_sql_str(manufacturer)}
+LIMIT 1
+""".strip()
+
+
+# ---------------------------------------------------------------------------
+# Manufacturer + Model
+# ---------------------------------------------------------------------------
+
+
+def build_model_sql(
+    bucket: str,
+    prefix: str,
+    manufacturer: str,
+    model: str,
+) -> str:
+    """Return manufacturer and model information."""
+
+    manufacturers = _t(bucket, prefix, "manufacturers")
+    models = _t(bucket, prefix, "models")
+
+    return f"""
+SELECT
+    m.manufacturer_id,
+    m.name AS manufacturer_name,
+    m.country AS manufacturer_country,
+    m.founded_year,
+    md.model_id,
+    md.name AS model_name,
+    md.segment
+FROM {manufacturers} m
+JOIN {models} md
+    ON md.manufacturer_id = m.manufacturer_id
+WHERE
+    m.name = {_sql_str(manufacturer)}
+    AND md.name = {_sql_str(model)}
+LIMIT 1
+""".strip()
+
+
+# ---------------------------------------------------------------------------
+# Manufacturer + Model + Year (Full Vehicle Summary)
+# ---------------------------------------------------------------------------
+
+
+def build_vehicle_summary_sql(
+    bucket: str,
+    prefix: str,
+    manufacturer: str,
+    model: str,
+    year: int,
+) -> str:
+    """Return the complete vehicle summary."""
+
     manu = _sql_str(manufacturer)
     mod = _sql_str(model)
 
@@ -49,9 +114,14 @@ WITH base AS (
         my.year,
         my.msrp_usd
     FROM {manufacturers} m
-    JOIN {models} md ON md.manufacturer_id = m.manufacturer_id
-    JOIN {model_years} my ON my.model_id = md.model_id
-    WHERE m.name = {manu} AND md.name = {mod} AND my.year = {int(year)}
+    JOIN {models} md
+        ON md.manufacturer_id = m.manufacturer_id
+    JOIN {model_years} my
+        ON my.model_id = md.model_id
+    WHERE
+        m.name = {manu}
+        AND md.name = {mod}
+        AND my.year = {year}
     LIMIT 1
 ),
 gen AS (
@@ -61,8 +131,9 @@ gen AS (
         g.start_year,
         g.end_year
     FROM {generations} g
-    JOIN base ON base.model_id = g.model_id
-    WHERE {int(year)} BETWEEN g.start_year AND g.end_year
+    JOIN base
+        ON base.model_id = g.model_id
+    WHERE {year} BETWEEN g.start_year AND g.end_year
     ORDER BY g.start_year
     LIMIT 1
 ),
@@ -72,16 +143,23 @@ rec AS (
         COUNT(*) AS recall_count,
         BOOL_OR(NOT r.resolved) AS open_recall
     FROM {recalls} r
-    JOIN base ON base.model_year_id = r.model_year_id
+    JOIN base
+        ON base.model_year_id = r.model_year_id
     GROUP BY r.model_year_id
 ),
 prt AS (
     SELECT
         mp.model_year_id,
-        STRING_AGG(p.part_name, '||' ORDER BY p.part_id) AS parts
+        STRING_AGG(
+            p.part_name,
+            '||'
+            ORDER BY p.part_id
+        ) AS parts
     FROM {model_parts} mp
-    JOIN base ON base.model_year_id = mp.model_year_id
-    JOIN {parts} p ON p.part_id = mp.part_id
+    JOIN {parts} p
+        ON p.part_id = mp.part_id
+    JOIN base
+        ON base.model_year_id = mp.model_year_id
     GROUP BY mp.model_year_id
 ),
 owners AS (
@@ -89,17 +167,19 @@ owners AS (
         cv.model_year_id,
         c.country
     FROM {consumer_vehicles} cv
-    JOIN base ON base.model_year_id = cv.model_year_id
-    JOIN {consumers} c ON c.consumer_id = cv.consumer_id
+    JOIN {consumers} c
+        ON c.consumer_id = cv.consumer_id
+    JOIN base
+        ON base.model_year_id = cv.model_year_id
 ),
 cons AS (
     SELECT
         COUNT(*) AS total_owners,
         (
-            SELECT o2.country
-            FROM owners o2
-            GROUP BY o2.country
-            ORDER BY COUNT(*) DESC, o2.country
+            SELECT country
+            FROM owners
+            GROUP BY country
+            ORDER BY COUNT(*) DESC, country
             LIMIT 1
         ) AS top_country
     FROM owners
@@ -111,7 +191,8 @@ sr AS (
         s.overall_rating,
         s.crash_test_score
     FROM {safety_ratings} s
-    JOIN base ON base.model_year_id = s.model_year_id
+    JOIN base
+        ON base.model_year_id = s.model_year_id
     ORDER BY s.overall_rating DESC
     LIMIT 1
 )
@@ -134,9 +215,58 @@ SELECT
     sr.overall_rating,
     sr.crash_test_score
 FROM base
-LEFT JOIN gen ON gen.model_id = base.model_id
-LEFT JOIN rec ON rec.model_year_id = base.model_year_id
-LEFT JOIN prt ON prt.model_year_id = base.model_year_id
-LEFT JOIN cons ON TRUE
-LEFT JOIN sr ON sr.model_year_id = base.model_year_id
+LEFT JOIN gen
+    ON gen.model_id = base.model_id
+LEFT JOIN rec
+    ON rec.model_year_id = base.model_year_id
+LEFT JOIN prt
+    ON prt.model_year_id = base.model_year_id
+LEFT JOIN cons
+    ON TRUE
+LEFT JOIN sr
+    ON sr.model_year_id = base.model_year_id
 """.strip()
+
+
+# ---------------------------------------------------------------------------
+# Public entry point
+# ---------------------------------------------------------------------------
+
+
+def build_vehicle_query(
+    bucket: str,
+    prefix: str,
+    manufacturer: str,
+    model: str | None = None,
+    year: int | None = None,
+) -> str:
+    """
+    Build the appropriate query based on the information provided.
+
+    manufacturer                  -> manufacturers
+    manufacturer + model          -> manufacturers + models
+    manufacturer + model + year   -> full vehicle summary
+    """
+
+    if model is None:
+        return build_manufacturer_sql(
+            bucket=bucket,
+            prefix=prefix,
+            manufacturer=manufacturer,
+        )
+
+    if year is None:
+        return build_model_sql(
+            bucket=bucket,
+            prefix=prefix,
+            manufacturer=manufacturer,
+            model=model,
+        )
+
+    return build_vehicle_summary_sql(
+        bucket=bucket,
+        prefix=prefix,
+        manufacturer=manufacturer,
+        model=model,
+        year=year,
+    )

@@ -52,9 +52,7 @@ def run_athena_query(sql: str) -> list[dict]:
         )
         query_id = execution["QueryExecutionId"]
 
-        deadline = time.monotonic() + float(
-            os.getenv("ATHENA_TIMEOUT_SECONDS", "30")
-        )
+        deadline = time.monotonic() + float(os.getenv("ATHENA_TIMEOUT_SECONDS", "30"))
         while True:
             status = athena.get_query_execution(QueryExecutionId=query_id)[
                 "QueryExecution"
@@ -80,9 +78,6 @@ def run_athena_query(sql: str) -> list[dict]:
 
     columns = [col.get("VarCharValue") for col in rows[0]["Data"]]
     return [
-        {
-            columns[i]: cell.get("VarCharValue")
-            for i, cell in enumerate(row["Data"])
-        }
+        {columns[i]: cell.get("VarCharValue") for i, cell in enumerate(row["Data"])}
         for row in rows[1:]
     ]
