@@ -48,7 +48,15 @@ def run_athena_query(sql: str) -> list[dict]:
     with _athena_semaphore:
         execution = athena.start_query_execution(
             QueryString=sql,
-            ResultConfiguration={"OutputLocation": output_location},
+            ResultConfiguration={
+                "OutputLocation": output_location,
+            },
+            ResultReuseConfiguration={
+                "ResultReuseByAgeConfiguration": {
+                    "Enabled": True,
+                    "MaxAgeInMinutes": 60*24,
+                }
+            },
         )
         query_id = execution["QueryExecutionId"]
 
