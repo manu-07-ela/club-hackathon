@@ -5,6 +5,7 @@ import os
 
 from fastapi import FastAPI, HTTPException, Query
 from typing import Annotated
+from functools import lru_cache
 
 from api.middleware.timing import register_timing_middleware
 from api.queries.vehicle_summary import build_vehicle_query
@@ -32,6 +33,7 @@ def ready() -> dict[str, str]:
     return {"status": "ready"}
 
 
+@lru_cache(maxsize=1024)
 @app.get("/vehicle-summary")
 def vehicle_summary(
     manufacturer: Annotated[str, Query(description="Manufacturer name, e.g. BMW.")],
